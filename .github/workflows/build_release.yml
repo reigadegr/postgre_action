@@ -125,8 +125,7 @@ jobs:
           git rm --cached -r .
           git reset --hard
           pwd
-          # export PATH="./win_flex_bison_dir:$PATH"
-          meson setup build --buildtype=release --prefix="/d/a/postgre_action/postgre_action/postgres/114514"
+          meson setup build --buildtype=release --prefix="/d/a/postgre_action/postgre_action/postgres/114514" -Dicu=enabled -Dlz4=enabled -Dzstd=enabled -Dssl=openssl -Dlibxml=enabled -Dlibxslt=enabled -Dlibcurl=enabled -Dzlib=enabled
           ninja -C build install
 
 
