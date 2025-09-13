@@ -106,7 +106,7 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/postgres/postgres
           cd postgres
-          meson setup build --backend=vs --buildtype=release --prefix=./114514
+          meson setup build --backend=vs --buildtype=release --prefix="D:\a\postgre_action\postgre_action\postgres\114514"
           ninja -C build
 
 
