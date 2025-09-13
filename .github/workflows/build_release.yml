@@ -107,8 +107,12 @@ jobs:
         shell: bash
         run: |
           curl -L -o flexbison.zip https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip
-          unzip flexbison.zip -d /c/flexbison
-          echo "/c/flexbison" >> "$GITHUB_PATH"
+          unzip flexbison.zip
+
+      - name: Install flex
+        run: |
+          copy win_flex.exe C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts\win_flex.exe
+          copy win_bison.exe C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts\win_bison.exe
 
       - name: Clone postgre sources
         shell: bash
