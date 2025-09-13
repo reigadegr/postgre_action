@@ -114,6 +114,7 @@ jobs:
         shell: bash
         run: |
           cp -r win_flex_bison_dir/* /c/hostedtoolcache/windows/Python/3.9.13/x64/Scripts
+          vcpkg install icu:x64-windows
 
       - name: Clone postgre sources
         shell: bash
