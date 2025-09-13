@@ -133,6 +133,6 @@ jobs:
       - name: Upload to GitHub artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.event.inputs.TARGET }}_cli_${{ github.event.inputs.TOOLCHAINS }}
+          name: ${{ github.event.inputs.TARGET }}_postgre
           path: postgres/114514/*
           retention-days: 2
