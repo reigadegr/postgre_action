@@ -107,7 +107,7 @@ jobs:
         shell: bash
         run: |
           curl -L -o flexbison.zip https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip
-          unzip flexbison.zip
+          yes | unzip flexbison.zip
 
       - name: Install flex
         run: |
