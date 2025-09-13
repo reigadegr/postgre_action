@@ -22,11 +22,6 @@ on:
           - "x86_64-pc-windows-msvc"
           - "aarch64-apple-darwin"
           - "x86_64-apple-darwin"
-      USE_O2:
-        type: boolean
-        description: "是否使用O2编译？(默认O3)"
-        required: true
-        default: false
 
 env:
   CARGO_TERM_COLOR: always
@@ -95,12 +90,19 @@ jobs:
           sudo -E rm -rf /etc/localtime
           sudo -E ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
+      - name: Install dependency
+        shell: bash
+        run: |
+          choco install meson ninja
+          meson --version  
+          ninja --version
+ 
       - name: Clone postgre sources
         shell: bash
         run: |
           git clone --depth 1 https://github.com/postgres/postgres
           cd postgres
-          meson setup build --buildtype=release --prefix=./114514
+          meson setup build --backend=vs --buildtype=release --prefix=./114514
           ninja -C build
 
 
