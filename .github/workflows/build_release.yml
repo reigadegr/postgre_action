@@ -134,5 +134,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.inputs.TARGET }}_cli_${{ github.event.inputs.TOOLCHAINS }}
-          path: 114514/*
+          path: postgres/114514/*
           retention-days: 2
