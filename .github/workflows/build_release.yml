@@ -110,10 +110,9 @@ jobs:
           mkdir win_flex_bison_dir
           unzip flexbison.zip -d win_flex_bison_dir || true
 
-      # - name: Install flex
-        # run: |
-          # copy win_flex.exe C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts\win_flex.exe
-          # copy win_bison.exe C:\hostedtoolcache\windows\Python\3.9.13\x64\Scripts\win_bison.exe
+      - name: Install flex
+        run: |
+          cp -r win_flex_bison_dir/* /c/hostedtoolcache/windows/Python/3.9.13/x64/Scripts
 
       - name: Clone postgre sources
         shell: bash
@@ -125,7 +124,7 @@ jobs:
           git rm --cached -r .
           git reset --hard
           pwd
-          export PATH="./win_flex_bison_dir:$PATH"
+          # export PATH="./win_flex_bison_dir:$PATH"
           meson setup build --buildtype=release --prefix="/d/a/postgre_action/postgre_action/postgres/114514"
           ninja -C build
 
