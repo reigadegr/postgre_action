@@ -98,9 +98,16 @@ jobs:
       - name: Show version
         shell: bash
         run: |
-          meson --version  
+          meson --version
           ninja --version
- 
+
+      - name: Download & unpack WinFlexBison
+        shell: bash
+        run: |
+          curl -L -o flexbison.zip https://github.com/lexxmark/winflexbison/releases/download/v2.5.25/win_flex_bison-2.5.25.zip
+          unzip flexbison.zip -d /c/flexbison
+          echo "/c/flexbison" >> "$GITHUB_PATH"
+
       - name: Clone postgre sources
         shell: bash
         run: |
