@@ -15,7 +15,7 @@ on:
         type: choice
         description: "编译的目标三元组"
         required: true
-        default: "aarch64-unknown-linux-musl"
+        default: "x86_64-pc-windows-msvc"
         options:
           - "aarch64-unknown-linux-musl"
           - "x86_64-unknown-linux-musl"
@@ -94,6 +94,10 @@ jobs:
         shell: bash
         run: |
           choco install meson ninja
+
+      - name: show version
+        shell: bash
+        run: |
           meson --version  
           ninja --version
  
