@@ -93,8 +93,7 @@ jobs:
       - name: Install dependency
         shell: bash
         run: |
-          choco install meson ninja -y
-          echo "/c/ProgramData/chocolatey/bin" >> "$GITHUB_PATH"
+          pip install meson ninja
 
       - name: Show version
         shell: bash
