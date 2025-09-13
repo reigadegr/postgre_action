@@ -127,7 +127,7 @@ jobs:
           pwd
           # export PATH="./win_flex_bison_dir:$PATH"
           meson setup build --buildtype=release --prefix="/d/a/postgre_action/postgre_action/postgres/114514"
-          ninja -C build
+          ninja -C build install
 
 
       - name: Upload to GitHub artifacts
